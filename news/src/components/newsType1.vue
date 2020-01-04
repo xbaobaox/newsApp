@@ -33,7 +33,7 @@ export default {
     };
   },
   created(){
-    console.log(this.type1Data)
+    // console.log(this.type1Data)
   }
 };
 </script>

@@ -1,7 +1,9 @@
 <template>
   <div class="cross">
     <div class="cross-head">
-      <img src="../assets/img/back.png" alt="" />
+      <router-link to="/">
+        <img src="../assets/img/back.png" alt="" class="back"/>
+      </router-link>
       <p class="cross-title">频道管理</p>
     </div>
     <div class="cross-main">
@@ -12,6 +14,7 @@
             class="cross-item"
             v-for="(item, index) of crossReserve"
             :key="index"
+            @click="changeDead(index)"
           >
             <span>
               {{ item.name }}
@@ -21,7 +24,12 @@
       </div>
       <p class="cross-title">点击添加以下频道</p>
       <div class="cross-flex">
-        <p class="cross-item" v-for="(item, index) of crossThrow" :key="index">
+        <p
+          class="cross-item"
+          v-for="(item, index) of crossThrow"
+          :key="index"
+          @click="changeActive(index)"
+        >
           <span>
             {{ item.name }}
           </span>
@@ -121,6 +129,19 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    changeDead(index) {
+      if (this.crossReserve[index].id == 1) {
+        return;
+      }
+      let dead = this.crossReserve.splice(index, 1);
+      this.crossThrow.push(dead[0]);
+    },
+    changeActive(index) {
+      let active = this.crossThrow.splice(index, 1);
+      this.crossReserve.push(active[0]);
+    }
   }
 };
 </script>
@@ -134,10 +155,13 @@ export default {
     background-color: #d43d3d;
     padding: 15px;
     position: relative;
-    img {
+    .back {
       width: 22px;
       position: absolute;
       left: 15px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
     }
     .cross-title {
       color: #fff;
@@ -154,16 +178,10 @@ export default {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      // justify-content: space-around;
-      // padding: 0 15px;
-      // text-align: center;
-      // margin: auto;
       .cross-item {
         box-sizing: border-box;
         width: 25%;
-        // padding: 5px 0;
         text-align: center;
-        // margin: 5px 0;
         span {
           border: 1px solid rgba(0, 0, 0, 0.2);
           display: block;
