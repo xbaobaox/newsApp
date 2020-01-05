@@ -2,7 +2,7 @@
   <div class="cross">
     <div class="cross-head">
       <router-link to="/">
-        <img src="../assets/img/back.png" alt="" class="back"/>
+        <img src="../assets/img/back.png" alt="" class="back" />
       </router-link>
       <p class="cross-title">频道管理</p>
     </div>
@@ -130,17 +130,23 @@ export default {
       ]
     };
   },
+  created(){
+    this.crossReserve=JSON.parse(localStorage.getItem("reserve"));
+    this.crossThrow=JSON.parse(localStorage.getItem("throw"));
+  },
   methods: {
     changeDead(index) {
       if (this.crossReserve[index].id == 1) {
         return;
       }
-      let dead = this.crossReserve.splice(index, 1);
-      this.crossThrow.push(dead[0]);
+      this.crossThrow.push(this.crossReserve.splice(index, 1)[0]);
+      localStorage.setItem("throw", JSON.stringify(this.crossThrow));
+      localStorage.setItem("reserve", JSON.stringify(this.crossReserve));
     },
     changeActive(index) {
-      let active = this.crossThrow.splice(index, 1);
-      this.crossReserve.push(active[0]);
+      this.crossReserve.push(this.crossThrow.splice(index, 1)[0]);
+      localStorage.setItem("throw", JSON.stringify(this.crossThrow));
+      localStorage.setItem("reserve", JSON.stringify(this.crossReserve));
     }
   }
 };

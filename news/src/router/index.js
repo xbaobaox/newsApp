@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Search from '../views/Search.vue'
 import Cross from '../views/Cross.vue'
+import Detail from "../views/Detail.vue"
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/cross',
     name: "cross",
     component:Cross
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component:Detail
   }
   
 ]

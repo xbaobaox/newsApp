@@ -1,10 +1,13 @@
 <template>
   <div class="news-subject">
     <div class="news-item" v-for="(item, index) of type1Data" :key="index">
+       <router-link to="/detail">
       <p class="title">
         {{ item.title }}
       </p>
+       </router-link>
       <div class="item-img">
+       <router-link to="/detail" >
         <img
           :src="src"
           alt=""
@@ -12,6 +15,7 @@
           v-for="(src, index) of item.img"
           :key="index"
         />
+       </router-link>
       </div>
       <div class="item-bott">
         <span class="source">{{ item.source }}</span>
