@@ -3,11 +3,11 @@
     <headBar />
     <indexBar />
     <div class="cont">
-        <div class="filter" v-for="(item, index) of newsInfo" :key="index">
-          <newsType1 v-if="item.type == 1" :type1Data="[item]" />
-          <newsType2 v-else-if="item.type == 2" :type2Data="[item]" />
-          <newsType3 v-else-if="item.type == 3" :type3Data="[item]" />
-        </div>
+      <div class="filter" v-for="(item, index) of newsInfo" :key="index">
+        <newsType1 v-if="item.type == 1" :type1Data="[item]" />
+        <newsType2 v-else-if="item.type == 2" :type2Data="[item]" />
+        <newsType3 v-else-if="item.type == 3" :type3Data="[item]" />
+      </div>
     </div>
     <div class="mask" v-if="isShow">
       <banner class="banner" />

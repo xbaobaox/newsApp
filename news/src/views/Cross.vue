@@ -130,9 +130,9 @@ export default {
       ]
     };
   },
-  created(){
-    this.crossReserve=JSON.parse(localStorage.getItem("reserve"));
-    this.crossThrow=JSON.parse(localStorage.getItem("throw"));
+  created() {
+    this.crossReserve = JSON.parse(localStorage.getItem("reserve"));
+    this.crossThrow = JSON.parse(localStorage.getItem("throw"));
   },
   methods: {
     changeDead(index) {
