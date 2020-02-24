@@ -47,10 +47,6 @@
         <recType2 v-else-if="item.type == 2" :rtData2="[item]" />
       </div>
     </div>
-    <div class="rec">
-      <p class="rec-title">搜索</p>
-      <p>中国导弹世界排名</p>
-    </div>
   </div>
 </template>
 
@@ -190,7 +186,7 @@ export default {
   .rec {
     padding: 15px;
     .rec-title {
-      font-size: 18px;
+      // font-size: 18px;
       font-weight: bold;
       position: relative;
       right: 4px;
